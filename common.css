@@ -1,0 +1,277 @@
+/* float布局*/
+.fl{float: left;} 
+.fr{float: right;}  
+/* 清除浮动 */
+.clear{height:0;clear:both;font-size:0} /*clear:这个是放在float元素的最后面额外添加的标签上面*/
+.clearfix{*zoom:1}/*clearfix：这个是用于float元素的父元素标签上面*/
+.clearfix:after,.clearfix:before{display:table;content:" "}
+.clearfix:after{clear:both}
+/*float的栅格系统布局：需要配合clear或clearfix一起使用*/
+/* 行 */
+.float-row{-webkit-box-sizing: border-box;box-sizing: border-box;}
+/* 列 */
+/* 补充说明：
+    1、若要列之间有间歇：则额外用padding,若想偏移，则用margin-left/right或者用一个<div class="float-col-3"></div>来占空间
+    2、可以配合flex一起使用。通过 flex 布局来对分栏进行灵活的对齐。参考element ui
+*/
+[class*=float-col-]{float: left;}
+.float-col-1{width: 8.33333333%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-2{width: 16.66666667%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-3{width: 25%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-4{width: 33.33333333%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-5{width: 41.66666667%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-6{width: 50%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-7{width: 58.33333333%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-8{width: 66.66666667%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-9{width: 75%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-10{width: 83.33333333%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-11{width: 91.66666667%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.float-col-12{width: 100%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+
+
+
+/* position：定位 */
+/* 绝对或固定或float元素会生成一个inline-block框,而不论该元素本身是什么类型 */
+/* relative：作用补充：
+    1、需要保留自己的文档空间，实现类似absolute随意定位功能的情况。如滑动一定距离悬浮吸顶(建议用这个而不是ablosute，避免吸顶时文档重排及文档波动)【优化技巧】
+    2、后代需要以这个节点为absolute绝对定位，此时设置relative
+    3、不会改变框类型
+ */
+.static{position: static;}/*默认值：忽略定位相关的属性：top,bottom,left,right或者z-index声明*/
+.rel{position:relative;}/*实现在文档流(还占用原文档流位置)，相对于 static 定位以外的第一个父元素进行定位，可以left，right，top，bottom及z-index  √*/
+.abs{position:absolute;}/*脱离文档流，相对于浏览器窗口进行定位，相对于可以left，right，top，bottom及z-index*/
+.fixed{position: fixed;}
+
+
+/*display：框类型*/
+.dn{display:none;}
+.db{display:block;}
+.di{display:inline;}
+.dib{display:inline-block;}
+
+
+/* 盒子模型 */
+/* content-box,border-box */
+/* w3c width指的是内容盒子的宽度，IE指的是到border的宽度 */
+/* 
+* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+*:before,*:after {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;} 
+*/
+.border-box{box-sizing:border-box;}
+.content-box{box-sizing:content-box;}
+
+
+/* 内外边距，盒子模型*//* 单位根据应用场景来换 */
+/*A:知识补充：margin/padding的值
+    1、长度：
+    2、auto:水平可以auto
+    3、百分比：相当于父元素的宽度的百分比【上下边距也是根据width的百分比来计算的】【这里类似于垂直方向没办法auto一个道理】【对于保持整体不变形很有用！】
+*B:对于display属性不同时，表现也不同
+    1、block元素可以使用四个方向的margin值；2、inline元素使用上下方向的margin值无效；3、inline-block使用上下方向的margin负值看上去无效
+*/
+
+/* 外边框 */
+/* 上下 */
+.mtb-20{margin-top:20px;margin-bottom: 20px;}
+.mtb-40{margin-top:40px;margin-bottom: 40px;}
+.mt-20{margin-top:20px;}
+.mt-40{margin-top:40px;}
+.mb-20{margin-bottom: 20px;}
+.mb-40{margin-bottom: 40px;}
+/*左右*/
+.mlr-auto{margin-left: auto;margin-right: auto;}
+.mlr-20{margin-left: 20px;margin-right: 20px;}
+.mlr-40{margin-left: 40px;margin-right: 40px;}
+.ml-20{margin-left: 20px;}
+.ml-40{margin-left: 40px;}
+.mr-20{margin-right: 20px;}
+.mr-40{margin-right: 40px;}
+/* margin的百分比：可用于栅格布局的偏移*/
+.ml-col-1{margin-left: 8.33333333%;}
+.ml-col-2{margin-left: 16.66666667%;}
+.ml-col-3{margin-left: 25%;}
+.ml-col-4{margin-left: 33.33333333%;;}
+.ml-col-5{margin-left: 41.66666667%;}
+.ml-col-6{margin-left: 50%;}
+.ml-col-7{margin-left: 58.33333333%;}
+.ml-col-8{margin-left: 66.66666667%;}
+.ml-col-9{margin-left: 75%;}
+.ml-col-10{margin-left: 83.33333333%;}
+.ml-col-11{margin-left: 91.66666667%;}
+.ml-col-12{margin-left: 100%;}
+/* 上下左右 */
+.m-auto{margin: auto;}/*可用于绝对定位元素的水平垂直居中*/
+.m-20{margin: 20px;}
+.m-40{margin: 40px;}
+
+
+/* 内边框 */
+/* 上下 */
+.ptb-20{padding-top:20px;padding-bottom: 20px;}
+.ptb-40{padding-top:40px;padding-bottom: 40px;}
+.pt-20{padding-top:20px;}
+.pt-40{padding-top:40px;}
+.pb-20{padding-bottom: 20px;}
+.pb-40{padding-bottom: 40px;}
+/*左右*/
+.plr-20{padding-left: 20px;padding-right: 20px;}
+.plr-20{padding-left: 20px;padding-right: 20px;}
+.pl-20{padding-left: 20px;}
+.pl-40{padding-left: 40px;}
+.pr-20{padding-right: 20px;}
+.pr-40{padding-right: 40px;}
+/* 上下左右 */
+.p-20{padding: 20px;}
+.p-40{padding: 40px;}
+
+
+/*圆角*/
+.br-4{border-radius: 4px;}
+.br-6{border-radius: 6px;}
+.br-8{border-radius: 8px;}
+.br-10{border-radius: 10px;}
+.br-20{border-radius: 20px;}
+.br-30{border-radius: 30px;}
+.br-40{border-radius: 40px;}
+.br-max{border-radius: 1000px;}/*长宽不一样：左右两半圆;如果是正方形，则是圆*/
+
+
+/* 边框 */
+/* 边框线 */
+/* 边框线的值继承：
+  设置border-style，就会出现边框。设置了border-width/style/color之后，上下左右独自的边框的某个样式会继承border-*对应的   √
+*/
+[class*=border]{border-width: 1px;}
+.border-color{border-color:grey;}
+.border-t{border-top-style: solid;}
+.border-b{border-bottom-style: solid;}
+.border-tb{border-top-style: solid;border-bottom-style: solid;}
+.border-l{border-left-style: solid;}
+.border-r{border-right-style: solid;}
+.border-lr{border-left-style: solid;border-right-style: solid;}
+.border{border-style: solid;}
+
+
+/*文本对齐方式*/
+.text-center{text-align:center;}
+.text-right{text-align:right;}
+.text-left{text-align:left;}
+.text-justify{ /*实现固定宽度的平均分布字体*/
+    text-align: justify;
+    height: 40px;
+    line-height: 40px; /*这个要外部重写*/
+    overflow: hidden;
+    text-justify: inter-ideograph; /* IE 6-7 */
+    *zoom: 1; /* IE 6-7 触发 hasLayout 使一行也能两端对齐 */
+    -webkit-text-align-last: justify;
+    text-align-last: justify;/* IE 8+ */
+}
+.text-justify:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+/* 行内元素在行内的垂直对齐方式 */
+.vm{vertical-align:middle;}
+.vtb{vertical-align:text-bottom;}
+.vt{vertical-align:top;}
+
+/* 字体<大小，风格，粗细>*/
+.fs-0{font-size:0;}/*处理，换行时占用宽高问题；其它解决途径：上个标签闭合和该文本在一行即可*/
+.fs-10{font-size: 10px;}
+.fs-12{font-size: 12px;}
+.fs-14{font-size: 14px;}
+.fs-16{font-size: 16px;}
+.fs-18{font-size: 18px;}
+.fs-20{font-size: 20px;}
+.fs-22{font-size: 22px;}
+.fs-24{font-size: 24px;}
+.fs-26{font-size: 26px;}
+.fs-28{font-size: 28px;}
+.fs-30{font-size: 30px;}
+
+
+.fi,.i{font-style: italic;/*斜体*/}
+.fb,.bold{font-weight: bold;}
+.fn{font-style: normal;font-weight: normal}
+
+
+
+/* 颜色 <主题色(背景色)，文本颜色，衬托色(边框/阴影)>*/
+/* 能设置为类的，只有color及background颜色，其它要有颜色，可以借鉴这边颜色，保持颜色一致 */
+/*背景色(看主题色)*/
+/* 具体值根据自己风格设置 */
+/* 深颜色使用c、f、6、9这四个字符，组合生成 RGB 色值 */
+/* 淡颜色使用a、b、c、d、e、f这六个字符，组合生成 RGB 色值 */
+.theme-color-page{background-color:#eee;}
+.theme-color-button{background-color:#ffcc66;}
+
+.color-2{color:#222;}/*文本颜色，2->9为显眼到不显眼*/
+.color-3{color:#333;}
+.color-6{color:#666;}
+.color-9{color:#999;}
+.color-f{color:#fff;}/*白色*/
+
+.color-a{border-color: #aaa;}/* 衬托色 ，建议从aaa、bbb、ccc、ddd这四个色值挑选:阴影的也根据这个来写即可*/
+.color-b{border-color: #bbb;}
+.color-c{border-color: #ccc;}
+.color-d{border-color: #ddd;}
+
+/* 其它 */
+/* 遮罩 */
+.mask{position:absolute;z-index:2000;background-color:hsla(0,0%,100%,.9);margin:0;top:0;right:0;bottom:0;left:0;transition:opacity .3s}
+
+/* 骨架屏开始，建议每个页面写不一样的 */
+.skeleton {
+    background-repeat: no-repeat;
+    background-image:/*这里写骨架屏的所有元素(第一个是动画)，绘制背景。底下属性，对应其大小和位置*/
+        -webkit-gradient(linear,left top, right top,from(transparent), color-stop(50%, grey),to(transparent)), /* 第4层 动画 */
+        radial-gradient(circle closest-side at center, white 100%, transparent), /* 第3层 头像 */
+        -webkit-gradient(linear, left top, right top, from(white) , to(white)), /* 第2层 标题 */
+        -webkit-gradient(linear, left top, right top, from(white) , to(white)), /* 第1层 标题 */
+        -webkit-gradient(linear,left top, left bottom,from(gray),to(gray));
+    background-image:/*这里写骨架屏的所有元素(第一个是动画)，绘制背景。底下属性，对应其大小和位置*/
+        linear-gradient(to right,transparent 0%, grey 50%,transparent 100%), /* 第4层 动画 */
+        radial-gradient(circle closest-side at center, white 100%, transparent), /* 第3层 头像 */
+        linear-gradient(to right, white , white 100%), /* 第2层 标题 */
+        linear-gradient(to right, white , white 100%), /* 第1层 标题 */
+        linear-gradient(to bottom,gray 0%,gray 100%); /* 第0层 卡片背景 */
+    background-size:
+        20px 100%,  /* 动画 */
+        32px 32px,  /* 头像 */
+        200px 25px,  /* 标题 */
+        250px 25px,  /* 标题 */
+        100% 100%; /* 卡片背景 */
+    background-position:
+        -20px 0,  /* 动画 */
+        24px 24px,  /* 头像 */
+        24px 70px, /* 标题 */
+        24px 100px, /* 标题 */
+        0 0;        /* 卡片背景 */
+        -webkit-animation: skeletonLoading 5s infinite;
+        animation: skeletonLoading 2s infinite;
+}
+@-webkit-keyframes skeletonLoading {
+    0% {
+        background-position: 24px 0,24px 24px,24px 70px,24px 100px, 0 0;
+        background-size: 20px 100%,32px 32px,0 25px,0 25px,100% 100%; 
+    }
+    100% {
+        /*其实有两种动画，自己选择需要的一种。*/
+        /* 分别是以上元素的position */
+        background-position: 260px 0,24px 24px,24px 70px,24px 100px, 0 0;
+        background-size: 20px 100%,32px 32px,200px 25px,250px 25px,100% 100%; 
+    }
+}
+@keyframes skeletonLoading {
+    0% {
+        background-position: 24px 0,24px 24px,24px 70px,24px 100px, 0 0;
+        background-size: 20px 100%,32px 32px,0 25px,0 25px,100% 100%; 
+    }
+    100% {
+        /* 分别是以上元素的position */
+        background-position: 260px 0,24px 24px,24px 70px,24px 100px, 0 0;
+        background-size: 20px 100%,32px 32px,200px 25px,250px 25px,100% 100%; 
+    }
+}
+/* 骨架屏结束 */

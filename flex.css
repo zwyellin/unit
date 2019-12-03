@@ -1,0 +1,239 @@
+/*
+     ==================================flex布局======================================== 
+  */
+
+  /* flex容器常用类 */
+  .flex ,[class*=float-]{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* 排版方向 */
+  .flex-direction-row {
+    flex-direction: row;
+  }
+
+  .flex-direction-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .flex-direction-column {
+    flex-direction: column;
+  }
+
+  .flex-direction-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  /* 容器内容排版，带c代表content*/
+  /* 容器内容水平排版 */
+  .flex-justifyc-start {
+    justify-content: flex-start;
+  }
+
+  .flex-justifyc-end {
+    justify-content: flex-end;
+  }
+
+  .flex-justifyc-center {
+    justify-content: center;
+  }
+
+  .flex-justifyc-around {
+    justify-content: space-around;
+  }
+
+  .flex-justifyc-between {
+    justify-content: space-between;
+  }
+
+  /* 容器内容垂直排版,仅对多行时生效*/
+  .flex-alignc-stretch {
+    align-content: stretch;
+  }
+
+  .flex-alignc-start {
+    align-content: flex-start;
+  }
+
+  .flex-alignc-end {
+    align-content: flex-end;
+  }
+
+  .flex-alignc-center {
+    align-content: center;
+  }
+
+  .flex-alignc-around {
+    align-content: space-around;
+  }
+
+  .flex-alignc-between {
+    align-content: space-between;
+  }
+
+  /* 项目s内容排版,带s代表项目s */
+  .flex-aligns-stretch {
+    align-items: stretch;
+  }
+
+  .flex-aligns-start {
+    align-items: flex-start;
+  }
+
+  .flex-aligns-end {
+    align-items: flex-end;
+  }
+
+  .flex-aligns-baseline {
+    /*基线对齐：对于容器可以不一样，但文字水平保持对齐很有用*/
+    align-items: baseline;
+  }
+
+  .flex-aligns-center {
+    align-items: center;
+  }
+
+  /* 换行 */
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  /* 不换行 */
+  .flex-nowrap {
+    flex-wrap: nowrap
+  }
+
+  /* flex项目常用类 */
+  /* 
+* 放大：flex-grow: <number>;        //default 0 
+* 缩小：flex-shrink: <number>;      //default 1
+* 基准：flex-basis: <length> | auto;       //default auto
+*flex属性是flex-grow, flex-shrink 和 flex-basis的简写
+* flex值的情况：
+* 1、auto 等价于 1 1 auto
+* 2、none 等价于 0 0 auto
+* 3、非负数 等价于 x 1 auto【放大比例】
+* 4、长度或百分比 等价于 1 1 20px/20%【基准长度，默认auto表示根据内容弹性的宽度】【可以作为栅格系统。即子项宽度，不再是自适应内容。而是根据这个值来 】
+*/
+
+  /* 默认,不放大，平均缩小*/
+  .flex-default {
+    /*放大比例*/
+    flex-grow: 0;
+    /*缩小比例*/
+    flex-shrink: 1;
+    /* 主轴空间 */
+    flex-basis: auto;
+  }
+
+  /* auto：平均放大，平均缩小 */
+  .flex-auto,
+  .flex1 {
+    flex: auto;
+    /*1 1 auto*/
+  }
+
+  /* none：不放大不缩小，超出会溢出*/
+  .flex-none,
+  .flex0 {
+    flex: none;
+    /*0 0 auto*/
+  }
+
+  /* 非负数：即x 1 auto【放大比例】 */
+  .flex-1 {
+    flex: 1;
+  }
+
+  .flex-2 {
+    flex: 2;
+  }
+
+  .flex-3 {
+    flex: 3;
+  }
+
+  .flex-4 {
+    flex: 4;
+  }
+
+  .flex-5 {
+    flex: 5;
+  }
+
+  /* 长度或百分比：等价于 1 1 20px/20%【基准长度，默认auto表示根据内容弹性的宽度】即子项宽度，不再是自适应内容。而是根据这个值来
+    可以作为栅格系统。 
+*/
+  /* flex-col-*表示占用多少列：这里默认一行平分为12列 */
+  .flex-col-1 {
+    flex: 0 0 8.333333%;
+  }
+  .flex-col-2 {
+    flex: 0 0 16.666667%;
+  }
+  .flex-col-3 {
+    flex: 0 0 25%;
+  }
+  .flex-col-4 {
+    flex: 0 0 33.333333%;
+  }
+  .flex-col-5 {
+    flex: 0 0 41.666667%;
+  }
+  .flex-col-6 {
+    flex: 0 0 50%;
+  }
+  .flex-col-7 {
+    flex: 0 0 58.333333%;
+  }
+  .flex-col-8 {
+    flex: 0 0 66.666667%;
+  }
+  .flex-col-9 {
+    flex: 0 0 75%;
+  }
+  .flex-col-10 {
+    flex: 0 0 83.333333%;
+  }
+  .flex-col-11 {
+    flex: 0 0 91.666667%;
+  }
+  .flex-col-12 {
+    flex: 0 0 100%;
+  }
+
+
+  /*多交叉轴自身对齐方式*/
+  /* flex-start | flex-end | center | baseline | stretch */
+  .flex-align-self-auto {/*默认*/
+    align-self: auto;
+  }
+
+  .flex-align-self-start {
+    align-self: flex-start;
+  }
+
+  .flex-align-self-center {
+    align-self: center;
+  }
+
+  .flex-align-self-end {
+    align-self: flex-end;
+  }
+
+
+  /* 一行多列水平垂直居中,默认水平排版，可由flex-direction来确定排版方向*/
+  /* 相当于针对该行，项目内容居中 */
+  .flex-alls-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 多行多列水平居中，默认水平排版，可由flex-direction来确定排版方向 */
+  /* 相当于针对flex容器，容器的居中 */
+  .flex-allc-center {
+    justify-content: center;
+    align-content: center;
+  }

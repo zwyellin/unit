@@ -1,0 +1,38 @@
+/* 其它 */
+/* 超出省略号... */
+[class*=dots-]{
+    display:-webkit-box;
+    text-overflow:ellipsis;
+    overflow:hidden;/*要设置容器高度，为：line-height*-webkit-line-clamp*/
+    /* 否则，虽然会出现...。但如果高度较高，底下还是会展示 */
+    /*如果要文字外层使用padding，则在祖父容器设置padding，父容器设置dots*/
+    -webkit-box-orient:vertical;
+    word-break:break-all;
+}
+.dots-1{
+    -webkit-line-clamp:1;/* 多行改这个数字即可*/
+}
+.dots-2{
+    -webkit-line-clamp:2;/* 多行改这个数字即可*/
+}
+.dots-3{
+    -webkit-line-clamp:3;/* 多行改这个数字即可*/
+}
+
+/* ...加载动画 */
+.dot-animation::after {
+    content: '...';
+    -webkit-animation: dot-animation 3s infinite  both;
+            animation: dot-animation 3s infinite  both;
+}
+@-webkit-keyframes dot-animation {
+    33% { content: '.'; }
+    66% { content: '..'; }
+    99% { content: '...'; }
+}
+@keyframes dot-animation {
+    33% { content: '.'; }
+    66% { content: '..'; }
+    99% { content: '...'; }
+}
+
