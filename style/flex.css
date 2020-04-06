@@ -1,0 +1,82 @@
+/* flex容器常用类 */
+.flex ,[class*=flex-]{display: -webkit-box;display: -ms-flexbox;display: flex;}
+
+/* 排版方向 */
+.flex-direction-row {flex-direction: row;}
+.flex-direction-row-reverse {flex-direction: row-reverse; }
+.flex-direction-column {flex-direction: column;}
+.flex-direction-column-reverse { flex-direction: column-reverse;}
+
+/* 容器内容排版，带c代表content*/
+/* 容器内容水平排版 */
+.flex-justifyc-start {justify-content: flex-start;}
+.flex-justifyc-end {justify-content: flex-end;}
+.flex-justifyc-center {justify-content: center;}
+.flex-justifyc-around {justify-content: space-around;}
+.flex-justifyc-between {justify-content: space-between;}
+/* 容器内容垂直排版,仅对多行时生效*/
+.flex-alignc-stretch {align-content: stretch;}
+.flex-alignc-start {align-content: flex-start;}
+.flex-alignc-end {align-content: flex-end;}
+.flex-alignc-center {align-content: center;}
+.flex-alignc-around {align-content: space-around;}
+.flex-alignc-between {align-content: space-between;}
+/* 相当于针对该行，项目内容居中 */
+.flex-alls-center {justify-content: center;align-items: center;}
+/* 相当于针对flex容器，容器的居中 */
+.flex-allc-center {justify-content: center;align-content: center;}
+
+/* 项目s内容排版,带s代表项目s */
+.flex-aligns-stretch {align-items: stretch;}
+.flex-aligns-start {align-items: flex-start;}
+.flex-aligns-end {align-items: flex-end;}
+.flex-aligns-baseline {align-items: baseline;}
+.flex-aligns-center {align-items: center;}
+
+/* 换行/不换行 */
+.flex-wrap {flex-wrap: wrap;}
+.flex-nowrap {flex-wrap: nowrap}
+
+/* flex项目常用类 */
+/* 放大缩小:  自身width  < 【父容器布局flex1 ，contentWidth：这里值较大的生效】 <  父容器布局flex-basis < 自身min/max:最后生效的有最后的决定*/
+.flex-default {flex-grow: 0;flex-shrink: 1;flex-basis: auto;}/* 默认,不放大，平均缩小*/
+.flex-none{flex: none;/*0 0 auto*/}/* none：不放大不缩小，超出会溢出*/
+.flex-auto {flex: auto;/*1 1 auto*/}/* auto：平均放大，平均缩小 */
+.flex-1 {flex: 1;}/* 非负数/放大比例：即x 1 auto; 为1时等价于flex-auto*/
+/* 这里补充下：父容器布局flex1 ，contentWidth：这里值较大的生效。对于内容会超过flex1的情况 */
+/* 如果希望flex1固定生效，则，当然利用absolute也行，就是麻烦些*/
+.flex-1-full{flex: 1;min-width: 0;min-height:0;}
+/* 如果希望超出时contentWidth生效，则 */
+.flex-1-content{flex-grow: 1;flex-shrink: 0;flex-basis: auto;}/* 平均放大，不缩小*/
+/* 总结：对于子节点也是flex1情况，强烈建议使用flex-1-full,flex-1-content明确自身内容超出时容器大小 */
+/* 长度或百分比：等价于 1 1 20px/20%*/
+.flex-col-1 {flex: 0 0 4.166666%;}
+.flex-col-2 {flex: 0 0 8.333333%;}
+.flex-col-3 {flex: 0 0 12.5%;}
+.flex-col-4 {flex: 0 0 16.666666%;}
+.flex-col-5 {flex: 0 0 20.833333%;}
+.flex-col-6 {flex: 0 0 25%;}
+.flex-col-7 {flex: 0 0 29.166666%;}
+.flex-col-8 {flex: 0 0 33.333333%;}
+.flex-col-9 {flex: 0 0 37.5%;}
+.flex-col-10 {flex: 0 0 41.666666%;}
+.flex-col-11 {flex: 0 0 45.833333%;}
+.flex-col-12 {flex: 0 0 50%;}
+.flex-col-13 {flex: 0 0 54.166666%;}
+.flex-col-14 {flex: 0 0 58.333333%;}
+.flex-col-15 {flex: 0 0 62.5%;}
+.flex-col-16 {flex: 0 0 66.666666%;}
+.flex-col-17 {flex: 0 0 70.8333333%;}
+.flex-col-18 {flex: 0 0 75%;}
+.flex-col-19 {flex: 0 0 79.166666%;}
+.flex-col-20 {flex: 0 0 83.333333%;}
+.flex-col-21 {flex: 0 0 87.5%;}
+.flex-col-22 {flex: 0 0 91.666666%;}
+.flex-col-23 {flex: 0 0 95.833333%;}
+.flex-col-24 {flex: 0 0 100%;}
+
+/*多交叉轴自身对齐方式*/
+.flex-align-self-auto {align-self: auto;}
+.flex-align-self-start {align-self: flex-start;}
+.flex-align-self-center {align-self: center;}
+.flex-align-self-end {align-self: flex-end;}

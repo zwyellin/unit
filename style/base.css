@@ -1,0 +1,278 @@
+/** 原子类
+* 命名规范：
+* 1、属性关键字
+* 2、属性修饰符:方向 t/r/b/l或x/y row/col
+* 3、值
+*   3.1：css的关键字
+*   3.2：如果是数字，小数转化为整数；负数转化为-value;百分百写成valuep;单位默认是px，如果是其它的后续接上单位即可
+*   3.3：这边定义私有关键字：大小类：sm/md//lg.xl;深浅类：light/dark;属性状态:full/screen;容器状态:disabled/active/error/...
+* 4、以上通过'-'来连接
+*/
+
+/* 盒子类型:display */
+.block{display: block;}
+.inline{display: inline;}
+.inline-block{display: inline-block;}
+.float-right{float: right;}
+.float-left{float: left;}
+.float-none{float: none;}
+.flex{display: flex;}
+.grid{display: grid;}
+.table{display: table;}
+.table-row{display: table-row;}
+.table-column{display: table-column;}
+.table-cell{display: table-cell;}
+.hidden{display: none;}
+
+/* 盒子定位模型及相关 */
+.static{position: static;}
+.fixed{position: fixed};
+.absolute{position: absolute};
+.relative{position: relative};
+.sticky{position: sticky};
+/* --位置-- */
+.inset-0{top: 0;right: 0;bottom: 0;left: 0;}
+.inset-auto{top: auto;right: auto;bottom: auto;left: auto;} /*auto是默认值*/
+.inset-y-0{top:0;bottom: 0;}
+.inset-x-0{right:0;left:0}
+.inset-l-0{left:0;}
+.inset-r-0{right:0;}
+.inset-t-0{top:0;}
+.inset-b-0{bottom:0;}
+.inset-y-auto{top: auto;bottom: auto;}
+.inset-x-auto{left: auto;right: auto;}
+.inset-l-auto{left:auto;}
+.inset-r-auto{right:auto;}
+.inset-t-auto{top:auto;}
+.inset-b-auto{bottom:auto;}
+/* --z-index-- */
+.z-index-0{z-index: 0;}
+.z-index-content{z-index: 10;}
+.z-index-nav{z-index: 20;}
+.z-index-mask{z-index: 30;}
+.z-index-modal{z-index: 40;}
+.z-index-auto{z-index: auto;}
+
+/* 盒子可见性及透明度 */
+.visible{visibility: visible;}
+.invisible{visibility: hidden;}
+.opacity-0{opacity: 0;}
+.opacity-25{opacity: .25;}
+.opacity-50{opacity: .5;}
+.opacity-75{opacity: .75;}
+.opacity-100{opacity: 1;}
+
+/* 盒子宽高模型 */
+.box-border{box-sizing: border-box;}
+.box-content{box-sizing: content-box;}
+
+/* 盒子溢出及滑动效果处理 */
+.overflow-auto{overflow: auto;}
+.overflow-visible{overflow: visible;}
+.overflow-hidden{overflow: hidden;}
+.overflow-scroll{overflow: scroll;}
+.overflow-y-scroll{overflow-y: scroll;}
+.overflow-x-scroll{overflow-x: scroll;}
+.scrolling-touch{-webkit-overflow-scrolling: touch;}
+
+/* 盒子宽高 */
+.height-0{height: 0;}
+.height-min-0{min-height: 0;}
+.height-10{height:10px;}
+.height-20{height:20px;}
+.height-30{height:30px;}
+.height-40{height:40px;}
+.height-50{height:50px;}
+.height-100{height:100px;}
+.height-10-p{height:10%;}
+.height-20-p{height:20%;}
+.height-30-p{height:30%;}
+.height-40-p{height:40%;}
+.height-50-p{height:50%;}
+.height-100-p{height:100%;}
+.height-min-100-p{min-height: 100%;}
+.height-max-100-p{max-height: 100%;}
+.height-screen{height:100vh;}
+.height-min-screen{min-height: 100vh;}
+.height-max-screen{max-height: 100vh;}
+.width-0{width: 0;}
+.width-min-0{min-width: 0;}
+.width-10{width:10px;}
+.width-20{width:20px;}
+.width-30{width:30px;}
+.width-40{width:40px;}
+.width-50{width:50px;}
+.width-100{width:100px;}
+.width-10-p{width:10%;}
+.width-20-p{width:20%;}
+.width-30-p{width:30%;}
+.width-40-p{width:40%;}
+.width-50-p{width:50%;}
+.width-100-p{width:100%;}
+.width-min-100-p{min-width:100%;}
+.width-max-100-p{max-width:100%;}
+.width-screen{width:100vh;}
+.width-min-screen{min-width:100vh;}
+.width-max-screen{max-width:100vh;}
+
+/* 盒子边距及背景 */
+[class*=border-]{border-style: solid;border-width: 1px;/* 默认设置值 */}
+.border-0{border-width:0;}
+.border-t-0{border-top-width: 0;}
+.border-r-0{border-right-width:0;}
+.border-b-0{border-bottom-width: 0;}
+.border-l-0{border-left-width: 0;}
+.border-1{border-width: 1px;}
+.border-2{border-width: 2px;}
+.border-color-transparent{border-color: transparent;}
+.border-color-f{border-color: #fff;}
+.border-color-a{border-color: #aaa;}
+.border-color-b{border-color: #bbb;}
+.border-color-c{border-color: #ccc;}
+.border-color-d{border-color: #ddd;}
+.round-0{border-radius: 0;}
+.round-2{border-radius: 2px;}
+.round-4{border-radius: 4px;}
+.round-6{border-radius: 6px;}
+.round-8{border-radius: 8px;}
+.round-full{border-radius: 9999px;}
+.round-t-0{border-top-left-radius: 0;border-top-right-radius: 0;}
+.round-r-0{border-top-right-radius: 0;border-bottom-right-radius: 0;}
+.round-b-0{border-bottom-left-radius: 0;border-bottom-right-radius: 0;}
+.round-l-0{border-top-left-radius: 0;border-bottom-left-radius: 0;}
+.bg-color-transparent{background-color: transparent;}
+.bg-color-f{background-color: #fff;}
+
+/* 盒子内外边距:0 10 20 30 40*/
+.m-0{margin: 0;}
+.m-y-0{margin-top:0;margin-bottom:0;}
+.m-x-0{margin-right:0;margin-left:0;}
+.m-t-0{margin-top:0;}
+.m-r-0{margin-right: 0;}
+.m-b-0{margin-bottom: 0;}
+.m-l-0{margin-left: 0;}
+.m-10{margin:10;}
+.m-y-10{margin-top:10;margin-bottom:10;}
+.m-x-10{margin-right:10;margin-left:10;}
+.m-t-10{margin-top:10;}
+.m-r-10{margin-right: 10;}
+.m-b-10{margin-bottom: 10;}
+.m-l-10{margin-left: 10;}
+.m-20{margin:20;}
+.m-y-20{margin-top:20;margin-bottom:20;}
+.m-x-20{margin-right:20;margin-left:20;}
+.m-t-20{margin-top:20;}
+.m-r-20{margin-right: 20;}
+.m-b-20{margin-bottom: 20;}
+.m-l-20{margin-left: 20;}
+.m-30{margin:30;}
+.m-y-30{margin-top:30;margin-bottom:30;}
+.m-x-30{margin-right:30;margin-left:30;}
+.m-t-30{margin-top:30;}
+.m-r-30{margin-right: 30;}
+.m-b-30{margin-bottom: 30;}
+.m-l-30{margin-left: 30;}
+.m-40{margin:40;}
+.m-y-40{margin-top:40;margin-bottom:40;}
+.m-x-40{margin-right:40;margin-left:40;}
+.m-t-40{margin-top:40;}
+.m-r-40{margin-right: 40;}
+.m-b-40{margin-bottom: 40;}
+.m-l-40{margin-left: 40;}
+.m-40{margin:40;}
+.m-y-40{margin-top:40;margin-bottom:40;}
+.m-x-40{margin-right:40;margin-left:40;}
+.m-t-40{margin-top:40;}
+.m-r-40{margin-right: 40;}
+.m-b-40{margin-bottom: 40;}
+.m-l-40{margin-left: 40;}
+.p-0{padding: 0;}
+.p-y-0{padding-top:0;padding-bottom:0;}
+.p-x-0{padding-right:0;padding-left:0;}
+.p-t-0{padding-top:0;}
+.p-r-0{padding-right: 0;}
+.p-b-0{padding-bottom: 0;}
+.p-l-0{padding-left: 0;}
+.p-10{padding:10;}
+.p-y-10{padding-top:10;padding-bottom:10;}
+.p-x-10{padding-right:10;padding-left:10;}
+.p-t-10{padding-top:10;}
+.p-r-10{padding-right: 10;}
+.p-b-10{padding-bottom: 10;}
+.p-l-10{padding-left: 10;}
+.p-20{padding:20;}
+.p-y-20{padding-top:20;padding-bottom:20;}
+.p-x-20{padding-right:20;padding-left:20;}
+.p-t-20{padding-top:20;}
+.p-r-20{padding-right: 20;}
+.p-b-20{padding-bottom: 20;}
+.p-l-20{padding-left: 20;}
+.p-30{padding:30;}
+.p-y-30{padding-top:30;padding-bottom:30;}
+.p-x-30{padding-right:30;padding-left:30;}
+.p-t-30{padding-top:30;}
+.p-r-30{padding-right: 30;}
+.p-b-30{padding-bottom: 30;}
+.p-l-30{padding-left: 30;}
+.p-40{padding:40;}
+.p-y-40{padding-top:40;padding-bottom:40;}
+.p-x-40{padding-right:40;padding-left:40;}
+.p-t-40{padding-top:40;}
+.p-r-40{padding-right: 40;}
+.p-b-40{padding-bottom: 40;}
+.p-l-40{padding-left: 40;}
+.p-40{padding:40;}
+.p-y-40{padding-top:40;padding-bottom:40;}
+.p-x-40{padding-right:40;padding-left:40;}
+.p-t-40{padding-top:40;}
+.p-r-40{padding-right: 40;}
+.p-b-40{padding-bottom: 40;}
+.p-l-40{padding-left: 40;}
+
+/* 内容区模型设置：针对文本 */
+.align-middle{vertical-align: middle;}
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.text-justify{text-align: justify;}
+
+/* 内容区字体相关 */
+.fs-12{font-size:12px;}
+.fs-14{font-size:14px;}
+.fs-16{font-size:16px;}
+.fs-18{font-size:18px;}
+.fs-20{font-size:20px;}
+.fs-22{font-size:22px;}
+.fs-24{font-size:24px;}
+.fs-26{font-size:26px;}
+.fs-28{font-size:28px;}
+.fs-30{font-size:30px;}
+.fs-32{font-size:32px;}
+.fs-34{font-size:34px;}
+.fs-36{font-size:36px;}
+.fs-38{font-size:38px;}
+.fs-40{font-size:40px;}
+.font-i{font-style: italic;}
+.font-no-i{font-style: normal;}
+.font-b{font-weight: bold;}
+.font-no-b{font-weight: normal;}
+.underline{text-decoration: underline;}
+.line-through{text-decoration: line-through;}
+.no-underline{text-decoration: none;}
+.color-2{color:#222;}
+.color-3{color:#333;}
+.color-6{color:#666;}
+.color-9{color:#999;}
+/* 建议单行垂直居中直接设置行高，不设置height */
+.leading-100{line-height: 1;}
+.leading-120{line-height: 1.2;}
+.leading-140{line-height: 1.4;}
+.leading-100-p{line-height: 100%;}/*后代也是这个行高高度*/
+.leading-120-p{line-height: 120%;}
+.leading-140-p{line-height: 140%;}
+.break-normal{word-break: normal;overflow-wrap: normal;}
+[class*=dots-]{display:-webkit-box;text-overflow:ellipsis;overflow:hidden;-webkit-box-orient:vertical;word-break:break-all;}
+.dots-1{-webkit-line-clamp:1;}
+.dots-2{-webkit-line-clamp:2;}
+.dots-3{-webkit-line-clamp:3;}
+
